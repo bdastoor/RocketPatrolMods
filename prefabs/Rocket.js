@@ -22,17 +22,17 @@ class Rocket extends Phaser.GameObjects.Sprite {
             this.sfxRocket.play();  // play sfx
         }
         // if fired, move up
-        if (this.isFiring && this.y >= 108) {
-            this.y -= 2;
+        if (this.isFiring && this.y >= 431) {
+            this.y += 2;
         }
         // reset on miss
-        if (this.y <= 108) {
+        if (this.y >= 431) {
             this.reset();
         }
     }
     // reset rocket to "ground"
     reset() {
         this.isFiring = false;
-        this.y = 431;
+        this.y = 108;
     }
 }

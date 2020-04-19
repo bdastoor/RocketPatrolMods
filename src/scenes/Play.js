@@ -5,12 +5,13 @@ class Play extends Phaser.Scene {
 
     preload() {
         // load images/tile sprites
-       // this.load.image('rocket', './assets/rocket.png');
-        this.load.spritesheet('rocket', './assets/dude-Sheet.png', {frameWidth: 32, frameHeight: 64, startFrame: 0, endFrame: 2});
-        this.load.image('spaceship', './assets/spaceship.png');
-        this.load.image('starfield', './assets/starfield.png');
+        this.load.image('rocket', './assets/bee.png');
+        this.load.image('flowerpi', './assets/pinkflower.png');
+        this.load.image('flowerpu', './assets/purpleflower.png');
+        this.load.image('flowerwh', './assets/whiteflower.png');
+        this.load.image('starfield', './assets/sky.png');
         // load spritesheet
-        this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
+        this.load.spritesheet('explosion', './assets/flowerexplosion.png', {frameWidth: 32, frameHeight: 64, startFrame: 0, endFrame: 8});
     }
 
     create() {
@@ -23,15 +24,15 @@ class Play extends Phaser.Scene {
         this.add.rectangle(5, 5, 32, 455, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(603, 5, 32, 455, 0xFFFFFF).setOrigin(0, 0);
         // green UI background
-        this.add.rectangle(37, 42, 566, 64, 0x00FF00).setOrigin(0, 0);
+        //this.add.rectangle(37, 42, 566, 64, 0x00FF00).setOrigin(0, 0);
 
         // add rocket (p1)
-        this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 431, 'rocket').setScale(0.5, 0.5).setOrigin(0, 0);
+        this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 108, 'rocket').setScale(0.5, 0.5).setOrigin(0, 0);
 
         // add spaceships (x3)
-        this.ship01 = new Spaceship(this, game.config.width + 192, 132, 'spaceship', 0, 30).setOrigin(0,0);
-        this.ship02 = new Spaceship(this, game.config.width + 96, 196, 'spaceship', 0, 20).setOrigin(0,0);
-        this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
+        this.ship01 = new Spaceship(this, game.config.width + 192, 315, 'flowerpi', 0, 30).setOrigin(0,0);
+        this.ship02 = new Spaceship(this, game.config.width + 96, 311, 'flowerpu', 0, 20).setOrigin(0,0);
+        this.ship03 = new Spaceship(this, game.config.width, 320, 'flowerwh', 0, 10).setOrigin(0,0);
 
         // define keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -41,19 +42,19 @@ class Play extends Phaser.Scene {
         // animation config
         this.anims.create({
             key: 'explode',
-            frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 9, first: 0}),
+            frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 8, first: 0}),
             frameRate: 30
         });
 
         // player 1 score
         this.p1Score = 0;
         // score display
-        let scoreConfig = {
+       let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
+            //backgroundColor: '#F3B141',
             color: '#843605',
-            align: 'right',
+            align: 'left',
             padding: {
                 top: 5,
                 bottom: 5,
