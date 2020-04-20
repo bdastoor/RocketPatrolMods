@@ -126,10 +126,13 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship01);
         }
         if(this.checkCollision(this.p1Rocket, this.stillBird)){
+            this.stillBird.alpha = 0;                         // temporarily hide ship
             this.sound.play('caw');  
             this.p1Rocket.reset();
             this.p1Score -= 20;
-            this.scoreLeft.text = this.p1Score;     
+            this.scoreLeft.text = this.p1Score;  
+            this.stillBird.reset();                       
+            this.stillBird.alpha = 1;     
         }
     }
 
