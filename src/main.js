@@ -1,4 +1,8 @@
-/*Rocket Patrol Modification
+/*
+Binaisha Dastoor 
+CMPM120
+
+Rocket Patrol Modification
  S-Rank Tier
  -Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi) (50 POINTS)
 
