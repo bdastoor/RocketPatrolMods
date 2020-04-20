@@ -6,7 +6,7 @@ class Menu extends Phaser.Scene {
     preload() {
         // load audio
         this.load.audio('sfx_select', './assets/start.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
+        this.load.audio('sfx_explosion', './assets/flowerchomp.wav');
         this.load.audio('sfx_rocket', './assets/bzzbzz.wav');        
         this.load.audio('caw', './assets/noiseBird.wav')
         this.load.audio('background', './assets/background.mp3')
@@ -53,12 +53,14 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
+
         this.sound.stopAll(); 
+
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             // easy mode
             game.settings = {
                 spaceshipSpeed: 3,
-                gameTimer: 20000    
+                gameTimer: 60000    
             }
             this.sound.play('sfx_select');
             
